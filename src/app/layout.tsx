@@ -1,11 +1,13 @@
 import Providers from "@/components/Providers";
 import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Appbar from "@/components/Appbar";
+import type { Metadata } from "next";
+import { cn } from "@/lib/utils"
+import { ToastContainer } from "react-toastify";
+import { Inter } from "next/font/google";
+
 
 const inter = Inter({ subsets: ["latin"] });
-import { cn } from "@/lib/utils"
 
 
 export const metadata: Metadata = {
