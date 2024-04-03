@@ -77,7 +77,7 @@ model Product {
   name                  String
   description           String?
   price                 Float
-  subcategory           Subcategory             @relation(fields: [subcategoryId], references: [id])
+  subcategory           Subcategory             @relation(fields: [subcategoryId], references: [id], onDelete: Cascade)
   subcategoryId         Int
   FeaturedProduct       FeaturedProduct[]
   SecondFeaturedProduct SecondFeaturedProduct[]
@@ -86,11 +86,11 @@ model Product {
 model FeaturedProduct {
   id        Int     @id @default(autoincrement())
   productId Int
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
 
 model SecondFeaturedProduct {
   id        Int     @id @default(autoincrement())
   productId Int
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
