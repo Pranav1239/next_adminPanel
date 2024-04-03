@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 interface Category {
@@ -22,22 +22,25 @@ const GetCategory: React.FC = () => {
                 setLoading(false); // Update loading state once data is fetched
             } catch (error) {
                 console.error('Error fetching categories:', error);
+                toast.error('Error fetching subcategories');
             }
         };
 
         fetchCategories();
     }, []);
 
+
     const handleDelete = async (id: number) => {
         try {
             await axios.delete(`/api/category?id=${id}`);
-            setCategories(categories.filter((category) => category.id !== id));
-            toast("Removed category")
+            setCategories(prevCategories => prevCategories.filter(category => category.id !== id));
+            toast.success('category deleted successfully');
         } catch (error) {
             console.error('Error deleting category:', error);
-            toast("Error on removing")
+            toast.error('Error deleting category');
         }
     };
+
 
     return (
         <div className=" py-8">
@@ -64,7 +67,11 @@ const GetCategory: React.FC = () => {
                                         <td className="py-4 px-6 text-white">{category.name}</td>
                                         <td className="py-4 px-6 text-white">{category.description || '-'}</td>
                                         <td className="py-4 px-6 text-white">
-
+                                            {category?.subcategories && category?.subcategories.map((subcategory) => (
+                                                <div key={subcategory.id}>
+                                                    {subcategory.name} ({subcategory.description || '-'})
+                                                </div>
+                                            ))}
                                         </td>
                                         <td className="py-4 px-6 text-white">
                                             <button

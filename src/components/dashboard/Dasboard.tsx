@@ -3,6 +3,7 @@ import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Category from './dashboard-category/Category'
 import { ToastContainer } from 'react-toastify'
+import SubCategory from './dasboard-subcategory/SubCategory'
 
 const Dasboard = () => {
   return (
@@ -32,11 +33,10 @@ const Dasboard = () => {
             {/* Category content */}
           </TabsContent>
           <TabsContent value="category" className="bg-gray-800 p-6 rounded-b-lg text-white">
-            {/* Category content */}
             <Category />
           </TabsContent>
           <TabsContent value="sub-category" className="bg-gray-800 p-6 rounded-b-lg text-white">
-            {/* Sub-Category content */}
+            <SubCategory />
           </TabsContent>
           <TabsContent value="addProduct" className="bg-gray-800 p-6 rounded-b-lg text-white">
             {/* Add-Product content */}
