@@ -61,6 +61,8 @@ model Category {
   name          String
   description   String?
   subcategories Subcategory[]
+  createdDate   DateTime      @default(now())
+  updatedDate   DateTime      @updatedAt
 }
 
 model Subcategory {
@@ -70,6 +72,8 @@ model Subcategory {
   category    Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   categoryId  Int
   products    Product[]
+  createdDate DateTime  @default(now())
+  updatedDate DateTime  @updatedAt
 }
 
 model Product {
@@ -81,6 +85,8 @@ model Product {
   subcategoryId         Int
   FeaturedProduct       FeaturedProduct[]
   SecondFeaturedProduct SecondFeaturedProduct[]
+  createdDate           DateTime                @default(now())
+  updatedDate           DateTime                @updatedAt
 }
 
 model FeaturedProduct {

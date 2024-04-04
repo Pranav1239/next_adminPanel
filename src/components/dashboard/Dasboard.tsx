@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Category from './dashboard-category/Category'
 import { ToastContainer } from 'react-toastify'
 import SubCategory from './dasboard-subcategory/SubCategory'
+import Product from './dashboard-product/Product'
 
 const Dasboard = () => {
   return (
@@ -41,7 +42,7 @@ const Dasboard = () => {
             <SubCategory />
           </TabsContent>
           <TabsContent value="addProduct" className="bg-gray-800 p-6 rounded-b-lg text-white">
-            {/* Add-Product content */}
+            <Product />
           </TabsContent>
           <TabsContent value="manageProduct" className="bg-gray-800 p-6 rounded-b-lg text-white">
             {/* Manage-Product content */}
