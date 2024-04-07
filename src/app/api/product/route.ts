@@ -12,6 +12,7 @@ type ProductData = {
 interface QueryParams {
   page?: string;
   cat?: string;
+  search?: string;
 }
 
 interface ProductResponse {
@@ -52,38 +53,22 @@ export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const queryParams: QueryParams = Object.fromEntries(searchParams.entries());
-
     const page = parseInt(queryParams.page || "1");
     const cat = queryParams.cat;
-
+    const search = queryParams.search || "";
     const POSTS_PER_PAGE = 3;
-
     const skip = POSTS_PER_PAGE * (page - 1);
-
-    const query = {
-      take: POSTS_PER_PAGE,
-      skip,
-      orderBy: {
-        createdDate: "desc",
-      },
-      where: {
-        subcategoryId: cat ? parseInt(cat) : undefined,
-      },
-      include: {
-        subcategory: true,
-        FeaturedProduct: true,
-        SecondFeaturedProduct: true,
-      },
-    };
 
     const products = await prisma.product.findMany({
       take: POSTS_PER_PAGE,
       skip,
-      orderBy: {
-        createdDate: "desc",
-      },
+      orderBy: { createdDate: "desc" },
       where: {
         subcategoryId: cat ? parseInt(cat) : undefined,
+        OR: [
+          { name: { contains: search } },
+          { description: { contains: search } },
+        ],
       },
       include: {
         subcategory: true,
@@ -91,20 +76,22 @@ export async function GET(req: NextRequest) {
         SecondFeaturedProduct: true,
       },
     });
-
     const totalProducts = await prisma.product.count({
-      where: query.where,
+      where: {
+        subcategoryId: cat ? parseInt(cat) : undefined,
+        OR: [
+          { name: { contains: search } },
+          { description: { contains: search } },
+        ],
+      },
     });
-
     const totalPages = Math.ceil(totalProducts / POSTS_PER_PAGE);
-
     const response: ProductResponse = {
       products,
       currentPage: page,
       totalPages,
       status: 200,
     };
-
     return NextResponse.json(response);
   } catch (error) {
     console.error("Error fetching products:", error);
