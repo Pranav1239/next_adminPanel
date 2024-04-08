@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import GetSubCategory from './GetSubCategory'
 import AddSubcategory from './AddSubCategory'

@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { cn } from "@/lib/utils"
 import { ToastContainer } from "react-toastify";
 import { Inter } from "next/font/google";
+import AuthProvider from "@/components/Providers";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,10 +23,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "min-h-screen bg-background font-sans antialiased",
         inter.className
       )}>
-        <Providers>
+        <AuthProvider >
           <Appbar />
           {children}
-        </Providers>
+        </AuthProvider>
       </body>
     </html>
   );

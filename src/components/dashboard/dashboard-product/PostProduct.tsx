@@ -74,13 +74,13 @@ const PostProduct: React.FC = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+        <form onSubmit={handleSubmit} className="flex flex-col text-white gap-2">
             {error && (
                 <Alert variant="destructive" className="bg-slate text-white">
                     <AlertDescription>{error}</AlertDescription>
                 </Alert>
             )}
-            <div className="grid gap-1.5 bg-slate-800 p-2 rounded-md">
+            <div className="grid gap-1.5  p-2 rounded-md">
                 <label htmlFor="name" className="text-white">Product Name</label>
                 <input id="name" name="name" value={formData.name} onChange={handleChange} required className="bg-slate text-white bg-slate-900 p-2 rounded-md focus:outline-none focus:ring focus:border-blue-300" />
             </div>

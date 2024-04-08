@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import { cn } from "@/lib/utils"
 import { ToastContainer } from "react-toastify";
+import Dasboard from "@/components/dashboard/Dasboard";
 
 
 export const metadata: Metadata = {
@@ -18,10 +19,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 "min-h-screen bg-background font-sans antialiased",
                 inter.className
             )}>
-                <div>
-                    <ToastContainer />
+                <div className="flex h-screen flex-row   md:overflow-hidden">
+                    <div className=" ">
+                        <Dasboard />
+                    </div>
+
+                    <div className="w-full p-5 bg-slate-900">{children}</div>
+                    <div>
+                        <ToastContainer />
+                    </div>
                 </div>
-                {children}
             </body>
         </html>
     );

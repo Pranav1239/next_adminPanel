@@ -37,7 +37,7 @@ const AddCategory = () => {
 
     return (
         <div>
-            <Button onClick={() => setIsOpen(true)}>Add Category</Button>
+            <Button onClick={() => setIsOpen(true)}  variant={"secondary"}>Add Category</Button>
 
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogContent>

@@ -1,60 +1,61 @@
 "use client"
-import React from 'react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Category from './dashboard-category/Category'
+import React, { useState } from 'react'
 import { ToastContainer } from 'react-toastify'
-import SubCategory from './dasboard-subcategory/SubCategory'
-import Product from './dashboard-product/Product'
-import GetManageProducts from './dasboard-manage/GetManageProducts'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import DasboardNavPc from './DasboardNavPc'
+
 
 const Dasboard = () => {
+
   return (
-    <div className=" py-6 overflow-hidden">
-      <ToastContainer />
-      <div className=" px-4">
-        <Tabs defaultValue="overview" className="w-[1500px]">
-          <TabsList className="grid w-full grid-cols-6 bg-gray-800 rounded-t-lg">
-            <TabsTrigger value="overview" className="px-4 py-2 text-white hover:bg-gray-700 rounded-tl-lg">
-              Overview
-            </TabsTrigger>
-            <TabsTrigger value="category" className="px-4 py-2 text-white hover:bg-gray-700">
-              Category
-            </TabsTrigger>
-            <TabsTrigger value="sub-category" className="px-4 py-2 text-white hover:bg-gray-700">
-              Sub-Category
-            </TabsTrigger>
-            <TabsTrigger value="addProduct" className="px-4 py-2 text-white hover:bg-gray-700">
-              Add-Product
-            </TabsTrigger>
-            <TabsTrigger value="manageProduct" className="px-4 py-2 text-white hover:bg-gray-700">
-              Manage-Product
-            </TabsTrigger>
-            <TabsTrigger value="manageOrders" className="px-4 py-2 text-white hover:bg-gray-700 rounded-tr-lg">
-              Manage Orders
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="overview" className="bg-gray-800 p-6 rounded-b-lg text-white">
-            {/* Overview content */}
-          </TabsContent>
-          <TabsContent value="category" className="bg-gray-800 p-6 rounded-b-lg text-white">
-            <Category />
-          </TabsContent>
-          <TabsContent value="sub-category" className="bg-gray-800 p-6 rounded-b-lg text-white">
-            <SubCategory />
-          </TabsContent>
-          <TabsContent value="addProduct" className="bg-gray-800 p-6 rounded-b-lg text-white">
-            <Product />
-          </TabsContent>
-          <TabsContent value="manageProduct" className="bg-gray-800 p-6 rounded-b-lg text-white">
-          <GetManageProducts />
-          </TabsContent>
-          <TabsContent value="manageOrders" className="bg-gray-800 p-6 rounded-b-lg text-white">
-            {/* Manage Orders content */}
-          </TabsContent>
-        </Tabs>
+    <div>
+      <div className=' xl:hidden'>
+        <Sheet>
+          <SheetTrigger>Open</SheetTrigger>
+          <SheetContent className="w-[400px] sm:w-[540px]">
+            <SheetHeader>
+              <SheetTitle>Are you absolutely sure?</SheetTitle>
+              <SheetDescription>
+                This action cannot be undone. This will permanently delete your account
+                and remove your data from our servers.
+              </SheetDescription>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
+      </div>
+      <div className=" hidden xl:block ">
+        <DasboardNavPc />
       </div>
     </div>
   )
 }
 
 export default Dasboard
+
+
+
+// {/* <TabsContent value="overview" className="bg-gray-800 p-6 rounded-b-lg text-white">
+// {/* Overview content */}
+// </TabsContent>
+// <TabsContent value="category" className="bg-gray-800 p-6 rounded-b-lg text-white">
+// <Category />
+// </TabsContent>
+// <TabsContent value="sub-category" className="bg-gray-800 p-6 rounded-b-lg text-white">
+// <SubCategory />
+// </TabsContent>
+// <TabsContent value="addProduct" className="bg-gray-800 p-6 rounded-b-lg text-white">
+// <Product />
+// </TabsContent>
+// <TabsContent value="manageProduct" className="bg-gray-800 p-6 rounded-b-lg text-white">
+// <GetManageProducts />
+// </TabsContent>
+// <TabsContent value="manageOrders" className="bg-gray-800 p-6 rounded-b-lg text-white">
+// {/* Manage Orders content */}
+// </TabsContent> */}

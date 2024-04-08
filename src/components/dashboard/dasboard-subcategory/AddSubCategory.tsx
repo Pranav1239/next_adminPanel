@@ -57,7 +57,7 @@ const AddSubcategory = () => {
 
     return (
         <>
-            <Button onClick={() => setIsOpen(true)}>Add Subcategory</Button>
+            <Button onClick={() => setIsOpen(true)} variant={"secondary"}>Add Subcategory</Button>
 
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogContent>
