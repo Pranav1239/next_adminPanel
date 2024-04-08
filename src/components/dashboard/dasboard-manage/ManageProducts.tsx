@@ -73,7 +73,7 @@ const ManageProducts: React.FC = () => {
     };
 
     return (
-        <div className="max-w-3xl text-white mx-auto p-4">
+        <div className=" text-white  p-4">
             <h1 className="text-3xl font-bold mb-4">Manage Products</h1>
 
             <input
@@ -101,18 +101,27 @@ const ManageProducts: React.FC = () => {
                 </div>
             </div>
 
-            {loading ? (
-                <div></div>
-            ) : (
-                <ul>
-                    {products.map((product) => (
-                        <li key={product.id} className="border-b py-2">
-                            <h3 className="text-lg font-bold">{product.name}</h3>
-                            <p className="text-gray-600">Category: {product.subcategory.name}</p>
-                        </li>
-                    ))}
-                </ul>
-            )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {products.map((product) => (
+                    <div
+                        key={product.id}
+                        className="bg-white rounded-lg shadow-md overflow-hidden"
+                    >
+                        {/* <img
+                            src={product?.imageUrl}
+                            alt={product.name}
+                            className="w-full h-48 object-cover"
+                        /> */}
+                        <div className="p-4">
+                            <h3 className="text-lg text-gray-900 font-bold mb-2">{product.name}</h3>
+                            <p className="text-gray-600 mb-2">
+                                Category: {product.subcategory.name}
+                            </p>
+                            {/* Add any other relevant product details here */}
+                        </div>
+                    </div>
+                ))}
+            </div>
 
 
             {totalPages > 1 && (

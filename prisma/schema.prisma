@@ -77,26 +77,23 @@ model Subcategory {
 }
 
 model Product {
-  id                    Int                     @id @default(autoincrement())
+  id                    Int            @id @default(autoincrement())
   name                  String
   description           String?
   price                 Float
-  subcategory           Subcategory             @relation(fields: [subcategoryId], references: [id], onDelete: Cascade)
+  subcategory           Subcategory    @relation(fields: [subcategoryId], references: [id], onDelete: Cascade)
   subcategoryId         Int
-  FeaturedProduct       FeaturedProduct[]
-  SecondFeaturedProduct SecondFeaturedProduct[]
-  createdDate           DateTime                @default(now())
-  updatedDate           DateTime                @updatedAt
+  images                ProductImage[]
+  FeaturedProduct       Boolean?
+  SecondFeaturedProduct Boolean?
+  createdDate           DateTime       @default(now())
+  updatedDate           DateTime       @updatedAt
 }
 
-model FeaturedProduct {
-  id        Int     @id @default(autoincrement())
-  productId Int
-  product   Product @relation(fields: [productId], references: [id])
-}
-
-model SecondFeaturedProduct {
-  id        Int     @id @default(autoincrement())
-  productId Int
-  product   Product @relation(fields: [productId], references: [id])
+model ProductImage {
+  id        Int      @id @default(autoincrement())
+  publicId  String
+  url       String
+  product   Product? @relation(fields: [productId], references: [id] , onDelete: Cascade)
+  productId Int?
 }

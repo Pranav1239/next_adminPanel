@@ -20,7 +20,7 @@ const User = () => {
                     {
                         session ? (<>
                             <Avatar>
-                                <AvatarImage src={session?.user?.image!}  />
+                                <AvatarImage src={session?.user?.image!} />
                                 <AvatarFallback>CN</AvatarFallback>
                             </Avatar>
                         </>) : (<>
@@ -36,17 +36,23 @@ const User = () => {
                     {
                         session ? (<>
                             <div className="flex flex-col gap-2 justify-center items-center">
-                                <Link href={"/dashboard"} className="text-blue-600">
-                                    Dashboard
-                                </Link>
-                                <button onClick={() => signOut()} className="text-red-600">
-                                    Sign Out
-                                </button>
+                                <div className="bg-blue-600 rounded-md text-white p-2 ">
+                                    <Link href={"/dashboard"} >
+                                        Dashboard
+                                    </Link>
+                                </div>
+                                <div className="bg-red-600 rounded-md text-white p-2 ">
+                                    <button onClick={() => signOut()} className="">
+                                        Sign Out
+                                    </button>
+                                </div>
                             </div>
                         </>) : (<>
-                            <button onClick={() => signIn()} className="text-green-600 ml-auto">
-                                Sign In
-                            </button>
+                            <div className="bg-blue-600 rounded-md text-white p-2 ">
+                                <button onClick={() => signIn()}>
+                                    Sign In
+                                </button>
+                            </div>
                         </>)
                     }
 
