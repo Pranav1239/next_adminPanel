@@ -1,9 +1,8 @@
-import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
 import React from "react";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 
 const AdminPage = async () => {
-  const session = await getServerSession(authOptions);
+  const { data: session } = useSession()
   if (session?.user.role === "admin") {
     return (
       <div>
@@ -13,9 +12,9 @@ const AdminPage = async () => {
     );
   }
 
-  return(
+  return (
     <>
-    <h1>Need Admin Access</h1>
+      <h1>Need Admin Access</h1>
     </>
   )
 
