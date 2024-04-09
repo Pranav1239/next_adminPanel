@@ -5,9 +5,25 @@ import axios from 'axios';
 interface Product {
     id: number;
     name: string;
+    description?: string | null;
+    price: number;
     subcategory: {
         name: string;
     };
+    subcategoryId: number;
+    images: ProductImage[];
+    FeaturedProduct?: boolean | null;
+    SecondFeaturedProduct?: boolean | null;
+    createdDate: Date;
+    updatedDate: Date;
+}
+
+interface ProductImage {
+    id: number;
+    publicId: string;
+    url: string;
+    product?: Product | null;
+    productId?: number | null;
 }
 
 interface ProductResponse {
@@ -103,20 +119,21 @@ const ManageProducts: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {products.map((product) => (
-                    <div
-                        key={product.id}
-                        className="bg-white rounded-lg shadow-md overflow-hidden"
-                    >
-                        {/* <img
-                            src={product?.imageUrl}
-                            alt={product.name}
-                            className="w-full h-48 object-cover"
-                        /> */}
+                    <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+                        {product.images.length > 0 && (
+                            <img
+                                src={product.images[0].url} // Assuming you want to use the first image
+                                alt={product.name}
+                                className="w-full h-48 object-cover"
+                            />
+                        )}
                         <div className="p-4">
                             <h3 className="text-lg text-gray-900 font-bold mb-2">{product.name}</h3>
                             <p className="text-gray-600 mb-2">
                                 Category: {product.subcategory.name}
                             </p>
+                            <p className="text-gray-600 mb-2">{product.description || 'No description available'}</p>
+                            <p className="text-gray-900 font-bold mb-2">${product.price.toFixed(2)}</p>
                             {/* Add any other relevant product details here */}
                         </div>
                     </div>

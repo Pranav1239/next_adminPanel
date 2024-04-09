@@ -2,13 +2,6 @@ import prisma from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server";
 import { Product } from "@prisma/client";
 
-type ProductData = {
-  name: string;
-  description?: string;
-  price: string;
-  subcategoryId: number;
-};
-
 interface QueryParams {
   page?: string;
   cat?: string;
@@ -22,24 +15,39 @@ interface ProductResponse {
   status: number;
 }
 
+interface ProductData {
+  name: string;
+  description?: string;
+  price: string; // Use number type for price
+  subcategoryId: number;
+  images: string[]; // Correct type for images
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { name, description, price, subcategoryId }: ProductData =
+    const { name, description, price, subcategoryId, images }: ProductData =
       await req.json();
 
-    const priceNumber = parseInt(price);
-
+    const newPrice = parseInt(price);
     // Create a new product
     const newProduct: Product = await prisma.product.create({
       data: {
         name,
         description,
-        price: priceNumber,
+        price: newPrice,
         subcategoryId,
+        images: {
+          createMany: {
+            data: images.map((img: any) => ({
+              url: img.url,
+              publicId: "abc",
+            })),
+            skipDuplicates: true,
+          },
+        },
       },
     });
-
-    return NextResponse.json(newProduct, { status: 201 });
+    return NextResponse.json({ product: newProduct }, { status: 201 });
   } catch (error) {
     console.error("Error creating product:", error);
     return NextResponse.json(
@@ -56,7 +64,7 @@ export async function GET(req: NextRequest) {
     const page = parseInt(queryParams.page || "1");
     const cat = queryParams.cat;
     const search = queryParams.search || "";
-    const POSTS_PER_PAGE = 3;
+    const POSTS_PER_PAGE = 28;
     const skip = POSTS_PER_PAGE * (page - 1);
 
     const products = await prisma.product.findMany({
@@ -72,8 +80,7 @@ export async function GET(req: NextRequest) {
       },
       include: {
         subcategory: true,
-        FeaturedProduct: true,
-        SecondFeaturedProduct: true,
+        images: true,
       },
     });
     const totalProducts = await prisma.product.count({
