@@ -49,7 +49,7 @@ const GetCategory: React.FC = () => {
                 {loading ? ( // Conditionally render based on loading state
                     <p>Loading...</p>
                 ) : categories.length === 0 ? ( // Check if categories array is empty
-                    <p>No categories available.</p>
+                    <p className='text-white'>No categories available.</p>
                 ) : (
                     <div className="bg-gray-800 rounded-lg overflow-hidden shadow-md">
                         <table className="w-full table-auto divide-y divide-gray-700">
