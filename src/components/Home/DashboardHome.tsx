@@ -4,11 +4,11 @@ import { ContainerScroll } from "../ui/container-scroll-animation";
 
 export function Hero2Dasboard() {
     return (
-        <div className="flex flex-col bg-black text-white overflow-hidden">
+        <div className="flex flex-col  text-black overflow-hidden">
             <ContainerScroll
                 titleComponent={
                     <>
-                        <h1 className="text-4xl font-semibold dark:text-white">
+                        <h1 className="text-4xl font-semibold">
 
                             Preview of the Dashboard<br />
                             <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">

@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         <Dasboard />
                     </div>
 
-                    <div className="w-full p-5 bg-slate-900">{children}</div>
+                    <div className="w-full p-5 ">{children}</div>
                     <div>
                         <ToastContainer />
                     </div>

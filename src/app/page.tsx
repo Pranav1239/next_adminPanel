@@ -17,7 +17,7 @@ export default function Home() {
   }, [])
   return (
     <main >
-      <div className='bg-black'>
+      <div className='bg '>
         <HeroPage />
       </div>
       <Hero2Dasboard />

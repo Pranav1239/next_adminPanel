@@ -25,25 +25,25 @@ const Appbar = () => {
   };
 
   return (
-    <header className="bg-white text-black flex items-center justify-between">
+    <header className=" bg-black text-white flex items-center justify-between">
       <div className="text-3xl">
         <Image src={logo} width={80} height={80} alt="Logo" />
       </div>
       <nav className="flex justify-center items-center gap-20">
         <Link href="/" className="relative">
           <div
-            className={`text-black ${isActiveLink("/") ? "font-bold" : ""
+            className={`text-white ${isActiveLink("/") ? "font-bold" : ""
               }`}
           >
             Home
           </div>
           {isActiveLink("/") && (
-            <div className="absolute left-0 right-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500" />
+            <div className="" />
           )}
         </Link>
         <Link href="/socials" className="relative">
           <div
-            className={`text-black ${isActiveLink("/socials") ? "font-bold" : ""
+            className={`text-white ${isActiveLink("/socials") ? "font-bold" : ""
               }`}
           >
             Socials
