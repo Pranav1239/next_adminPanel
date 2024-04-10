@@ -48,10 +48,13 @@ const User = () => {
                                 </div>
                             </div>
                         </>) : (<>
-                            <div className="bg-blue-600 rounded-md text-white p-2 ">
+                            <div className=" rounded-md text-black flex flex-col justify-center items-center gap-2 p-2 ">
                                 <button onClick={() => signIn()}>
                                     Sign In
                                 </button>
+                                <Link href={"/register"}>
+                                    Sign Up
+                                </Link>
                             </div>
                         </>)
                     }

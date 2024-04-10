@@ -11,7 +11,7 @@ interface FormData {
     password: string;
 }
 
-const RegisterForm = () => {
+const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
     
     const onSubmit = async (data: FormData) => {
@@ -68,4 +68,4 @@ const RegisterForm = () => {
     );
 };
 
-export default RegisterForm;
+export default LoginForm;

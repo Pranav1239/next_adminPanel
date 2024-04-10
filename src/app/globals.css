@@ -79,7 +79,7 @@
 /* ===== Scrollbar CSS ===== */
 * {
   scrollbar-width: auto;
-  scrollbar-color: #8f54a0 #000000;
+  scrollbar-color: #8f54a0;
 }
 
 *::-webkit-scrollbar {
@@ -87,7 +87,7 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: #000000;
+  background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
