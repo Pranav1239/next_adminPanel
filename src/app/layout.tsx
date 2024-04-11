@@ -25,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       )}>
         <AuthProvider >
           <Appbar />
+          <ToastContainer />
           {children}
         </AuthProvider>
       </body>

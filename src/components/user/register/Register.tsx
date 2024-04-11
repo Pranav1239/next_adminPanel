@@ -2,17 +2,22 @@
 import React from 'react'
 import RegisterForm from './RegisterForm'
 import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 const Register = () => {
 
   const { data: session } = useSession()
+  const router = useRouter()
+
 
   if (session) {
-    return null;
+    router.push('/dashboard')
+    return null
   }
 
+
   return (
-    <div className='h-screen flex bg-slate-900 items-center justify-center'>
+    <div className='h-screen flex bg-black items-center justify-center'>
       <RegisterForm />
     </div>
   )

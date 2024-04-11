@@ -33,7 +33,7 @@ const PostProduct: React.FC = () => {
         description: '',
         price: 0,
         subcategoryId: null,
-        images: [], // Add this line
+        images: [],
     });
     const [imageUrls, setImageUrls] = useState<Image[]>([]);
     const [error, setError] = useState<string | null>(null);
@@ -92,14 +92,17 @@ const PostProduct: React.FC = () => {
         <div className='max-w-[1200px]'>
             <form onSubmit={handleSubmit} className="flex flex-col text-white gap-2">
                 {error && (
-                    <Alert variant="destructive" className="bg-slate text-white">
-                        <AlertDescription>{error}</AlertDescription>
-                    </Alert>
+                    <div>
+                        <Alert variant="destructive" className="bg-slate text-white">
+                            <AlertDescription>{error}</AlertDescription>
+                        </Alert>
+                    </div>
+
                 )}
                 <div>
                     <div>Images</div>
                     <div>
-                    <ImageUpload
+                        <ImageUpload
                             value={imageUrls}
                             onChange={handleImageChange}
                             onRemove={(url) => handleImageChange(imageUrls.filter((image) => image.url !== url))}

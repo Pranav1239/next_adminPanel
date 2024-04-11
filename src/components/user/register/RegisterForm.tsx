@@ -13,7 +13,7 @@ interface FormData {
 
 const RegisterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
-    
+
     const onSubmit = async (data: FormData) => {
         try {
             const response = await axios.post('/api/register', data);

@@ -16,11 +16,11 @@ export default function Home() {
     )()
   }, [])
   return (
-    <main >
-      <div className='bg '>
+    <div >
+      <div className=''>
         <HeroPage />
       </div>
       <Hero2Dasboard />
-    </main>
+    </div>
   )
 }

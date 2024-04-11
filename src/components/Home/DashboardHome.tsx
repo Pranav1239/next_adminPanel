@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { ContainerScroll } from "../ui/container-scroll-animation";
+import PreviewDashboard from "../../../public/DashboardPreview.png"
 
 export function Hero2Dasboard() {
     return (
@@ -19,7 +20,7 @@ export function Hero2Dasboard() {
                 }
             >
                 <Image
-                    src={`/linear.webp`}
+                    src={PreviewDashboard}
                     alt="hero"
                     height={720}
                     width={1400}

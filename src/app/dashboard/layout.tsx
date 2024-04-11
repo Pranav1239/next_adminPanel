@@ -19,15 +19,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 "min-h-screen bg-background font-sans antialiased",
                 inter.className
             )}>
-                <div className="flex h-screen flex-row   md:overflow-hidden">
+                <div className="flex h-screen flex-row bg-slate-900  md:overflow-hidden">
                     <div className=" ">
                         <Dasboard />
                     </div>
-
-                    <div className="w-full p-5 ">{children}</div>
                     <div>
                         <ToastContainer />
                     </div>
+                    <div className="w-full p-5 ">{children}</div>
                 </div>
             </body>
         </html>

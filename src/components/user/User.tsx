@@ -25,7 +25,7 @@ const User = () => {
                             </Avatar>
                         </>) : (<>
                             <Avatar>
-                                <AvatarImage src="https://github.com/shadcn.png" />
+                                <AvatarImage src={"https://github.com/shadcn.png"} />
                                 <AvatarFallback>CN</AvatarFallback>
                             </Avatar>
                         </>)
@@ -49,9 +49,9 @@ const User = () => {
                             </div>
                         </>) : (<>
                             <div className=" rounded-md text-black flex flex-col justify-center items-center gap-2 p-2 ">
-                                <button onClick={() => signIn()}>
+                                <Link href={"/login"}>
                                     Sign In
-                                </button>
+                                </Link>
                                 <Link href={"/register"}>
                                     Sign Up
                                 </Link>
