@@ -69,7 +69,6 @@ const DasboardNavPc = () => {
                             <span className="flex-1 ms-3 whitespace-nowrap">Exit</span>
                         </Link>
                     </li>
-
                 </ul>
                 <div
                     id="dropdown-cta"

@@ -20,7 +20,9 @@ export default function Home() {
       <div className=''>
         <HeroPage />
       </div>
-      <Hero2Dasboard />
+      <div>
+        <Hero2Dasboard />
+      </div>
     </div>
   )
 }

@@ -1,25 +1,21 @@
-"use client"
-import React, { useState } from 'react'
-import { ToastContainer } from 'react-toastify'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
-import DasboardNavPc from './DasboardNavPc'
+// Import necessary components from react and react-toastify
+import React from 'react';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import DasboardNavPc from './DasboardNavPc';
+import 'react-toastify/dist/ReactToastify.css'; // Import stylesheet for react-toastify
+import { ToastContainer } from 'react-toastify';
 
-
-const Dasboard = () => {
-
+const Dashboard = () => {
   return (
-    <div>
-      <div className=' xl:hidden'>
+    <>
+      <div className='xl:hidden'>
+        {/* Use Sheet component correctly */}
         <Sheet>
+          {/* SheetTrigger is used to toggle the SheetContent visibility */}
           <SheetTrigger>Open</SheetTrigger>
+          {/* SheetContent contains the content of the sheet */}
           <SheetContent className="w-[400px] sm:w-[540px]">
+            {/* SheetHeader contains the title and description of the sheet */}
             <SheetHeader>
               <SheetTitle>Are you absolutely sure?</SheetTitle>
               <SheetDescription>
@@ -30,32 +26,14 @@ const Dasboard = () => {
           </SheetContent>
         </Sheet>
       </div>
-      <div className=" hidden xl:block ">
+      {/* Render DasboardNavPc inside the appropriate container */}
+      <div className="xl:block">
         <DasboardNavPc />
       </div>
-    </div>
-  )
+      {/* Render ToastContainer to display toast notifications */}
+      <ToastContainer />
+    </>
+  );
 }
 
-export default Dasboard
-
-
-
-// {/* <TabsContent value="overview" className="bg-gray-800 p-6 rounded-b-lg text-white">
-// {/* Overview content */}
-// </TabsContent>
-// <TabsContent value="category" className="bg-gray-800 p-6 rounded-b-lg text-white">
-// <Category />
-// </TabsContent>
-// <TabsContent value="sub-category" className="bg-gray-800 p-6 rounded-b-lg text-white">
-// <SubCategory />
-// </TabsContent>
-// <TabsContent value="addProduct" className="bg-gray-800 p-6 rounded-b-lg text-white">
-// <Product />
-// </TabsContent>
-// <TabsContent value="manageProduct" className="bg-gray-800 p-6 rounded-b-lg text-white">
-// <GetManageProducts />
-// </TabsContent>
-// <TabsContent value="manageOrders" className="bg-gray-800 p-6 rounded-b-lg text-white">
-// {/* Manage Orders content */}
-// </TabsContent> */}
+export default Dashboard;

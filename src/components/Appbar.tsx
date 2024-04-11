@@ -38,7 +38,7 @@ const Appbar = () => {
             Home
           </div>
           {isActiveLink("/") && (
-            <div className="" />
+            <div className=""></div>
           )}
         </Link>
         <Link href="/socials" className="relative">
