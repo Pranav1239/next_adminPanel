@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link';
 
 interface FormData {
   email: string;
@@ -80,11 +81,18 @@ const LoginPage = () => {
             <button
               type="button"
               onClick={handleGoogleSignIn}
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
             >
               Sign in with Google
             </button>
           </div>
+          <div className='mt-3 flex flex-row gap-2'>
+            <h1>Don't have a acount?</h1>
+            <Link className='text-blue-600 font-bold' href={"/register"}>Register</Link>
+          </div>
+          <Link href={"/password/sendMail"}>
+          <h1 className='text-red-700 font-medium'>ForgotPassword?</h1>
+          </Link>
         </form>
       </div>
     </div>

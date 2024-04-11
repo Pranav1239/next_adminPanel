@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 
 
 interface FormData {
@@ -24,6 +26,18 @@ const RegisterForm = () => {
             console.error(error);
         }
     };
+
+    const handleGoogleSignIn = async () => {
+        try {
+          const response = await signIn('google', { callbackUrl: '/' });
+          if (!response) {
+            toast.error("Something went wrong with Google Sign In", { theme: "colored" });
+          }
+        } catch (error) {
+          toast.error("An error occurred", { theme: "colored" });
+          console.error(error);
+        }
+      };
 
     return (
         <div className="flex justify-center items-center h-screen">
@@ -61,6 +75,17 @@ const RegisterForm = () => {
                         >
                             Register
                         </button>
+                        <button
+                            type="button"
+                            onClick={handleGoogleSignIn}
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
+                        >
+                            Sign in with Google
+                        </button>
+                    </div>
+                    <div className='mt-3 flex flex-row gap-2'>
+                        <h1>Already have a account?</h1>
+                        <Link className='text-blue-600 font-bold' href={"/login"}>Login</Link>
                     </div>
                 </form>
             </div>

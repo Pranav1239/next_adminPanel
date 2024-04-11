@@ -15,7 +15,7 @@ const Login = () => {
   }
 
   return (
-    <div className='h-screen flex bg-slate-900 items-center justify-center'>
+    <div className='h-screen flex bg-black items-center justify-center'>
       <LoginForm />
     </div>
   )
