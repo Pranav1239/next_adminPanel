@@ -111,11 +111,11 @@ const PostProduct: React.FC = () => {
                 <div>
                     <div>Images</div>
                     <div>
-                        {/* <ImageUpload
-                            value={imageUrls}
-                            onChange={handleImageChange}
-                            onRemove={handleImageRemove}
-                        /> */}
+                        <ImageUpload
+                            value={imageUrls.map((image) => image.url)}
+                            onChange={(url: any) => setImageUrls([...imageUrls, { url }])}
+                            onRemove={(url: any) => setImageUrls(imageUrls.filter((current) => current.url !== url))}
+                        />
                     </div>
                 </div>
                 <div className="grid gap-1.5  p-2 rounded-md">

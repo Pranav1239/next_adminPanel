@@ -130,7 +130,8 @@ const ManageProducts: React.FC = () => {
                                 <Image
                                     src={product.images[0].url}
                                     alt={product.name}
-                                    className="w-full h-48 object-cover"
+                                    width={100}
+                                    height={100}
                                 />
                             )}
                             <div className="p-4">

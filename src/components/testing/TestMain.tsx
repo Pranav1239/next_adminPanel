@@ -6,6 +6,7 @@ interface Image {
 }
 const TestMain = () => {
   const [field, setField] = useState<Image[]>([]);
+  console.log("Field :", field);
   return (
     <div>
       <ImageUpload
