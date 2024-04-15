@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 
 interface Product {
     id: number;
@@ -57,6 +58,7 @@ const ManageProducts: React.FC = () => {
         fetchSubcategories();
     }, []);
 
+
     useEffect(() => {
         const fetchProducts = async () => {
             setLoading(true);
@@ -87,6 +89,8 @@ const ManageProducts: React.FC = () => {
         const { value } = event.target;
         setSearchQuery(value); // Update searchQuery state with the input value
     };
+
+    console.log("Products", products);
 
     return (
         <>
@@ -123,8 +127,8 @@ const ManageProducts: React.FC = () => {
                     {products.map((product) => (
                         <div key={product.id} className="bg-white  rounded-lg shadow-md overflow-hidden">
                             {product.images.length > 0 && (
-                                <img
-                                    src={product.images[0].url} // Assuming you want to use the first image
+                                <Image
+                                    src={product.images[0].url}
                                     alt={product.name}
                                     className="w-full h-48 object-cover"
                                 />

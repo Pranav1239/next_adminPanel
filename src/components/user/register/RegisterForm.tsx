@@ -29,15 +29,12 @@ const RegisterForm = () => {
 
     const handleGoogleSignIn = async () => {
         try {
-          const response = await signIn('google', { callbackUrl: '/' });
-          if (!response) {
-            toast.error("Something went wrong with Google Sign In", { theme: "colored" });
-          }
+            const response = await signIn('google', { callbackUrl: '/' });
         } catch (error) {
-          toast.error("An error occurred", { theme: "colored" });
-          console.error(error);
+            toast.error("An error occurred", { theme: "colored" });
+            console.error(error);
         }
-      };
+    };
 
     return (
         <div className="flex justify-center items-center h-screen">

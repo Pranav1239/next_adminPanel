@@ -9,14 +9,12 @@ export const metadata: Metadata = {
 
 const Dashbpardlayout = async ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className="bg-slate-900">
+        <div className="bg-slate-900 flex flex-row ">
             <div className="">
                 <Dasboard />
             </div>
-            <div>
-                <ToastContainer />
-            </div>
             <div className="w-full p-5 ">{children}</div>
+            <ToastContainer />
         </div>
     );
 };

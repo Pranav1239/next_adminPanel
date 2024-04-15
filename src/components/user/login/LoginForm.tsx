@@ -33,9 +33,6 @@ const LoginPage = () => {
   const handleGoogleSignIn = async () => {
     try {
       const response = await signIn('google', { callbackUrl: '/' });
-      if (!response) {
-        toast.error("Something went wrong with Google Sign In", { theme: "colored" });
-      }
     } catch (error) {
       toast.error("An error occurred", { theme: "colored" });
       console.error(error);

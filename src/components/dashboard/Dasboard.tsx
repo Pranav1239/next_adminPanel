@@ -1,11 +1,16 @@
+"use client"
 // Import necessary components from react and react-toastify
 import React from 'react';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import DasboardNavPc from './DasboardNavPc';
 import 'react-toastify/dist/ReactToastify.css'; // Import stylesheet for react-toastify
 import { ToastContainer } from 'react-toastify';
+import { useSession } from 'next-auth/react';
 
 const Dashboard = () => {
+
+  const { data: session } = useSession();
+  console.log(session, "Dashboard")
   return (
     <>
       <div className='xl:hidden'>

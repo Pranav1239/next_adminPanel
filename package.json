@@ -31,6 +31,7 @@
     "caniuse-lite": "^1.0.30001605",
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^2.1.0",
+    "cloudinary-react": "^1.8.1",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.25",
     "gsap": "^3.12.5",

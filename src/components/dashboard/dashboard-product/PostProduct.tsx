@@ -59,8 +59,17 @@ const PostProduct: React.FC = () => {
     };
 
     const handleImageChange = (newImages: Image[]) => {
-        setImageUrls(newImages);
-        setFormData((prevData) => ({ ...prevData, images: newImages.map((image) => image.url) }));
+        const updatedImages = imageUrls.length > 0 ? [...imageUrls, newImages[0]] : newImages;
+        setImageUrls(updatedImages);
+        setFormData((prevData) => ({
+            ...prevData,
+            images: updatedImages.map((image) => image.url)
+        }));
+        console.log(imageUrls)
+    };
+    const handleImageRemove = (removedUrl: string) => {
+        const updatedImages = imageUrls.filter((image) => image.url !== removedUrl);
+        handleImageChange(updatedImages);
     };
 
     const handleSubcategoryChange = (subcategoryId: number | null) => {
@@ -105,7 +114,7 @@ const PostProduct: React.FC = () => {
                         <ImageUpload
                             value={imageUrls}
                             onChange={handleImageChange}
-                            onRemove={(url) => handleImageChange(imageUrls.filter((image) => image.url !== url))}
+                            onRemove={handleImageRemove}
                         />
                     </div>
                 </div>
