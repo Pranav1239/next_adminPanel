@@ -57,6 +57,36 @@ export async function POST(req: NextRequest) {
   }
 }
 
+export async function DELETE(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get("id");
+
+  if (!id) {
+    return NextResponse.json(
+      { error: "Product ID is required" },
+      { status: 400 }
+    );
+  }
+
+  const productId = parseInt(id); // Convert id to a number
+
+  const product = await prisma.product.findUnique({
+    where: { id: productId },
+  });
+
+  if (!product) {
+    return NextResponse.json({ error: "Category not found" }, { status: 404 });
+  }
+
+  const deletedProduct = await prisma.product.delete({
+    where: {
+      id: productId,
+    },
+  });
+
+  return NextResponse.json({ message: "Product deleted successfully" });
+}
+
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
