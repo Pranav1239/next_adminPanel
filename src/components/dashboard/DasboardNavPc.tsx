@@ -77,12 +77,11 @@ const DasboardNavPc = () => {
                 >
                     <div className="flex items-center mb-3">
                         <span className="bg-orange-600 text-white text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
-                            Working
+                            Responsive
                         </span>
-
                     </div>
                     <p className="mb-3 text-sm text-blue-400">
-                        This is the dashboard made by pranav
+                        For the admin dashboard, it is recommended to use your laptop or PC. Please avoid using it on mobile devices.
                     </p>
                 </div>
             </div>

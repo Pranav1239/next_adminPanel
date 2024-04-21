@@ -6,6 +6,7 @@ import DasboardNavPc from './DasboardNavPc';
 import 'react-toastify/dist/ReactToastify.css'; // Import stylesheet for react-toastify
 import { ToastContainer } from 'react-toastify';
 import { useSession } from 'next-auth/react';
+import { DoorOpen, SlidersIcon } from 'lucide-react';
 
 const Dashboard = () => {
 
@@ -13,11 +14,14 @@ const Dashboard = () => {
   console.log(session, "Dashboard")
   return (
     <>
-      <div className='xl:hidden'>
-        {/* Use Sheet component correctly */}
+      <div className='xl:hidden absolute'>
         <Sheet>
           {/* SheetTrigger is used to toggle the SheetContent visibility */}
-          <SheetTrigger>Open</SheetTrigger>
+          <SheetTrigger className='p-3'>
+            <div className='bg-white p-3 rounded-md'>
+              <DoorOpen />
+            </div>
+          </SheetTrigger>
           {/* SheetContent contains the content of the sheet */}
           <SheetContent className="w-[400px] sm:w-[540px]">
             {/* SheetHeader contains the title and description of the sheet */}
@@ -32,7 +36,7 @@ const Dashboard = () => {
         </Sheet>
       </div>
       {/* Render DasboardNavPc inside the appropriate container */}
-      <div className="xl:block">
+      <div className="hidden  xl:block">
         <DasboardNavPc />
       </div>
       {/* Render ToastContainer to display toast notifications */}

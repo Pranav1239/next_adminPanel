@@ -12,7 +12,7 @@ interface Category {
 
 const GetCategory: React.FC = () => {
     const [categories, setCategories] = useState<Category[]>([]);
-    const [loading, setLoading] = useState(true); // Add loading state
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -43,53 +43,56 @@ const GetCategory: React.FC = () => {
 
 
     return (
-        <div className=" py-8">
-            <div className=" mx-auto px-4">
+        <div className="py-8">
+            <div className="overflow-x-auto px-4">
                 <h1 className="text-2xl font-bold text-white mb-4">Categories</h1>
-                {loading ? ( // Conditionally render based on loading state
+                {loading ? (
                     <p>Loading...</p>
-                ) : categories.length === 0 ? ( // Check if categories array is empty
+                ) : categories.length === 0 ? (
                     <p className='text-white'>No categories available.</p>
                 ) : (
-                    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-md">
-                        <table className="w-full table-auto divide-y divide-gray-700">
-                            <thead className="bg-gray-700">
-                                <tr>
-                                    <th className="py-3 px-6 text-left text-white font-medium">Name</th>
-                                    <th className="py-3 px-6 text-left text-white font-medium">Description</th>
-                                    <th className="py-3 px-6 text-left text-white font-medium">Subcategories</th>
-                                    <th className="py-3 px-6 text-left text-white font-medium">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody className="bg-gray-800 divide-y divide-gray-700">
-                                {categories.map((category) => (
-                                    <tr key={category.id} className="hover:bg-gray-700 transition-colors duration-200">
-                                        <td className="py-4 px-6 text-white">{category.name}</td>
-                                        <td className="py-4 px-6 text-white">{category.description || '-'}</td>
-                                        <td className="py-4 px-6 text-white">
-                                            {category?.subcategories && category?.subcategories.map((subcategory) => (
-                                                <div key={subcategory.id}>
-                                                    {subcategory.name} ({subcategory.description || '-'})
-                                                </div>
-                                            ))}
-                                        </td>
-                                        <td className="py-4 px-6 text-white">
-                                            <button
-                                                className="bg-red-500 hover:bg-red-600 transition-colors duration-200 text-white py-2 px-4 rounded"
-                                                onClick={() => handleDelete(category.id)}
-                                            >
-                                                Delete
-                                            </button>
-                                        </td>
+                    <div className="bg-gray-800 rounded-lg overflow-x-auto shadow-md">
+                        <div className="table-container">
+                            <table className="w-full table-auto divide-y divide-gray-700">
+                                <thead className="bg-gray-700">
+                                    <tr>
+                                        <th className="py-3 px-2 sm:px-6 text-left text-white font-medium">Name</th>
+                                        <th className="py-3 px-2 sm:px-6 text-left text-white font-medium">Description</th>
+                                        <th className="py-3 px-2 sm:px-6 text-left text-white font-medium">Subcategories</th>
+                                        <th className="py-3 px-2 sm:px-6 text-left text-white font-medium">Actions</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody className="bg-gray-800 divide-y divide-gray-700">
+                                    {categories.map((category) => (
+                                        <tr key={category.id} className="hover:bg-gray-700 transition-colors duration-200">
+                                            <td className="py-3 px-2 sm:px-6 text-white">{category.name}</td>
+                                            <td className="py-3 px-2 sm:px-6 text-white">{category.description || '-'}</td>
+                                            <td className="py-3 px-2 sm:px-6 text-white">
+                                                {category?.subcategories && category?.subcategories.map((subcategory) => (
+                                                    <div key={subcategory.id}>
+                                                        {subcategory.name} ({subcategory.description || '-'})
+                                                    </div>
+                                                ))}
+                                            </td>
+                                            <td className="py-3 px-2 sm:px-6 text-white">
+                                                <button
+                                                    className="bg-red-500 hover:bg-red-600 transition-colors duration-200 text-white py-2 px-3 sm:px-4 rounded"
+                                                    onClick={() => handleDelete(category.id)}
+                                                >
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 )}
             </div>
         </div>
     );
+
 };
 
 export default GetCategory;

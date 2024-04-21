@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
+import { Delete, Trash } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 interface Product {
     id: number;
@@ -77,7 +79,7 @@ const ManageProducts: React.FC = () => {
 
     const handleSubcategoryClick = (subcategoryId: number) => {
         setSelectedSubcategory(subcategoryId);
-        setCurrentPage(1); // Reset page when selecting a new subcategory
+        setCurrentPage(1);
     };
 
 
@@ -87,7 +89,18 @@ const ManageProducts: React.FC = () => {
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
-        setSearchQuery(value); // Update searchQuery state with the input value
+        setSearchQuery(value);
+    };
+
+    const handleDelete = async (id: number) => {
+        try {
+            await axios.delete(`/api/product?id=${id}`);
+            toast.success("Successfully deleted product");
+        } catch (error) {
+            console.error('Error deleting category:', error);
+        } finally {
+            window.location.reload()
+        }
     };
 
     console.log("Products", products);
@@ -123,15 +136,21 @@ const ManageProducts: React.FC = () => {
                     </div>
                 </div>
 
+
                 <div className="grid grid-cols-1 p-3 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {products.map((product) => (
                         <div key={product.id} className="bg-white  rounded-lg shadow-md overflow-hidden">
+                            <div className='absolute bg-black p-2 rounded-md'>
+                                <button onClick={() => handleDelete(product.id)}>
+                                    <Trash color='red' />
+                                </button>
+                            </div>
                             {product.images.length > 0 && (
                                 <Image
                                     src={product.images[0].url}
                                     alt={product.name}
-                                    width={100}
-                                    height={100}
+                                    width={400}
+                                    height={400}
                                 />
                             )}
                             <div className="p-4">
