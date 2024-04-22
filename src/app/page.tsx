@@ -1,4 +1,5 @@
 "use client"
+import { APIshowCase } from '@/components/Home/APIshowCase';
 import { Hero2Dasboard } from '@/components/Home/DashboardHome'
 import HeroPage from '@/components/Home/HeroPage';
 import { Button } from '@/components/ui/button'
@@ -21,7 +22,10 @@ export default function Home() {
         <HeroPage />
       </div>
       <div>
-        <Hero2Dasboard />
+        <APIshowCase />
+      </div>
+      <div>
+        {/* <Hero2Dasboard /> */}
       </div>
     </div>
   )

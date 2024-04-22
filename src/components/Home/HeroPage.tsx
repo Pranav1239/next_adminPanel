@@ -1,8 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import heroImage from "../../../public/heroImage.gif"
-import heroImage1 from "../../../public/Shopping Options.gif"
-import heroImage2 from "../../../public/dashboard-image.png"
 import startup from "../../../public/startup.png"
 
 export default function HeroPage() {
@@ -11,7 +8,7 @@ export default function HeroPage() {
 
 
       <section className="relative lg:min-h-[80vh] pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-24">
-        <div className="absolute inset-x-0 bottom-0 z-10 hidden lg:flex">
+        <div className="absolute opacity-25 inset-x-0 bottom-0 z-10 hidden lg:flex">
           <Image className="" width={800} src={startup} alt="" />
         </div>
 
