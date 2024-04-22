@@ -55,7 +55,7 @@ const GetSubCategory: React.FC = () => {
         <div className=" py-8">
             <div className=" mx-auto px-4">
                 <h1 className="text-2xl font-bold text-white mb-4">Subcategories</h1>
-                <div className="bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                <div className="bg-gray-800 rounded-lg overflow-x-auto shadow-md">
                     <table className="w-full table-auto divide-y divide-gray-700">
                         <thead className="bg-gray-700">
                             <tr>

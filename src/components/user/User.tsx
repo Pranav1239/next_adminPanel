@@ -32,16 +32,11 @@ const User = () => {
                     }
 
                 </PopoverTrigger>
-                <PopoverContent className='max-w-[150px]'>
+                <PopoverContent className='max-w-[150px]  bg-black border-none'>
                     {
                         session ? (<>
                             <div className="flex flex-col gap-2 justify-center items-center">
-                                <div className="bg-blue-600 rounded-md text-white p-2 ">
-                                    <Link href={"/dashboard"} >
-                                        Dashboard
-                                    </Link>
-                                </div>
-                                <div className="bg-red-600 rounded-md text-white p-2 ">
+                                <div className="bg-red-600 py-2 px-4 rounded-md text-white">
                                     <button onClick={() => signOut()} className="">
                                         Sign Out
                                     </button>

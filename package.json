@@ -45,6 +45,7 @@
     "react-dom": "latest",
     "react-hook-form": "^7.51.2",
     "react-toastify": "^10.0.5",
+    "stripe": "^15.3.0",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.163.0",
