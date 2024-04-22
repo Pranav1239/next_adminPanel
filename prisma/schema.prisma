@@ -98,3 +98,13 @@ model ProductImage {
   product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId Int?
 }
+
+model Blog {
+  id          Int     @id @default(autoincrement())
+  title       String
+  image       String
+  summary1    String?
+  summary2    String?
+  summary3    String?
+  description String?
+}

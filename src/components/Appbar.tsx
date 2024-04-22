@@ -14,6 +14,7 @@ const Appbar = () => {
     "/dashboard/sub-cat",
     "/dashboard/users",
     "/dashboard/add-product",
+    "/dashboard/blogs",
   ];
 
   if (hiddenPaths.includes(pathname)) {
