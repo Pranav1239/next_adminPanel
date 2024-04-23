@@ -13,7 +13,7 @@ const Dashbpardlayout = async ({ children }: { children: React.ReactNode }) => {
             <div className="">
                 <Dasboard />
             </div>
-            <div className="w-full h-screen mt-14 xl:mt-2 p-5 overflow-hidden">{children}</div>
+            <div className="w-full  mt-14 xl:mt-2 p-5 overflow-hidden">{children}</div>
             <ToastContainer />
         </div>
     );

@@ -100,11 +100,13 @@ model ProductImage {
 }
 
 model Blog {
-  id          Int     @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String
   image       String
   summary1    String?
   summary2    String?
   summary3    String?
   description String?
+  createdDate DateTime @default(now())
+  updatedDate DateTime @updatedAt
 }
