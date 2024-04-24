@@ -22,9 +22,7 @@ const Dashboard = () => {
               <DoorOpen />
             </div>
           </SheetTrigger>
-          {/* SheetContent contains the content of the sheet */}
           <SheetContent className="w-[400px] sm:w-[540px]">
-            {/* SheetHeader contains the title and description of the sheet */}
             <SheetHeader>
               <SheetTitle>Are you absolutely sure?</SheetTitle>
               <SheetDescription>

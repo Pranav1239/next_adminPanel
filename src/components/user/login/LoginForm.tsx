@@ -84,11 +84,11 @@ const LoginPage = () => {
             </button>
           </div>
           <div className='mt-3 flex flex-row gap-2'>
-            <h1>Don't have a acount?</h1>
+            <h1>Dont have a acount?</h1>
             <Link className='text-blue-600 font-bold' href={"/register"}>Register</Link>
           </div>
           <Link href={"/password/sendMail"}>
-          <h1 className='text-red-700 font-medium'>ForgotPassword?</h1>
+            <h1 className='text-red-700 font-medium'>ForgotPassword?</h1>
           </Link>
         </form>
       </div>
